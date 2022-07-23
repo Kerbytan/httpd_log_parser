@@ -10,4 +10,8 @@ from pyspark.functions import (
 )
 
 def load_data(format, input):
-    ()
+    """load data"""
+    if format == 'parquet':
+        return spark.read.parquet(input)
+    else:
+        return spark.read.txt(input)
